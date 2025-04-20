@@ -60,7 +60,7 @@ const AddContact = () => {
                     <label for="address" className="form-label">Address</label>
                     <input type="text" className="form-control" id="address" placeholder="Plaza del Sol, Madrid" value={address} onChange={(e) => setAddress(e.target.value)} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-success">Create Contact</button>
             </form>
 
         </div>

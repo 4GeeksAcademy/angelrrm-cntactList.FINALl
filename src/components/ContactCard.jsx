@@ -1,10 +1,12 @@
 import React from 'react'
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import {useNavigate} from 'react-router-dom'
 
 
 function ContactCard(props) {
 
   const { dispatch } = useGlobalReducer()
+  const navigate = useNavigate()
 
 
   const handleDelete = async () => {
@@ -39,7 +41,7 @@ function ContactCard(props) {
 
   return (
     <div>
-      <div className="card" style={{ "width": "18rem" }}>
+      <div className="card " style={{ "width": "25rem" }}>
         <div className="card-header">
           {props.contactName}
         </div>
@@ -47,6 +49,7 @@ function ContactCard(props) {
           <li className="list-group-item">Email: {props.contactEmail}</li>
           <li className="list-group-item">Phone: {props.contactPhone}</li>
           <li className="list-group-item">Address: {props.contactAddress}</li>
+          <li type="button" className="list-group-item bg-warning" onClick={() => { navigate(`/edit/${props.contactId}`)}}>Edit Contact</li>
           <li type="button" className="list-group-item bg-danger text-white" onClick={handleDelete}>Delete</li>
         </ul>
       </div>
